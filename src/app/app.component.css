@@ -1,0 +1,88 @@
+.submit,
+#res {
+    display: flex;
+    justify-content: center;
+}
+
+.submit p {
+    cursor: pointer;
+    margin: 10px;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+
+#res {
+    flex-direction: column;
+
+}
+
+#res p {
+    cursor: pointer;
+    margin: 10px;
+    text-align: center;
+}
+
+.game-board {
+    display: flex;
+    justify-content: center;
+}
+
+.game-board p{
+    margin-top: 10%;
+    font-size: 25px;
+    font-weight: bolder;
+}
+
+.game-img {
+    width: 15%;
+    height: 15%;
+    min-width:60px;
+    min-height:60px;
+    margin: 10%;
+}
+
+.step p {
+    cursor: pointer;
+    margin: 10px;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+.step {
+    display: flex;
+    justify-content: center;
+}
+
+.changes{
+    display:felx;
+    flex-direction:column;
+    justify-content:center;
+    margin-top: -10%;
+}
+
+.points{
+    display:flex;
+    justify-content:center;
+}
+
+.points p{
+    margin-left:18%;
+    margin-right:18%;
+}
+
+.start{
+    animation-name: startGame;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: .5s;
+}
+
+@keyframes startGame{
+    0%{
+        transform:rotate(360deg);
+    }
+    100%{
+        transform:rotate(0deg);
+    }
+}

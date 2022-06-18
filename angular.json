@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "NASA": {
+    "scissors-paper-rock": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -17,13 +17,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/nasa",
+            "outputPath": "dist/scissors-paper-rock",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/favicon.ico",
+              "src/favicon.png",
               "src/assets"
             ],
             "styles": [
@@ -68,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "NASA:build:production"
+              "browserTarget": "scissors-paper-rock:build:production"
             },
             "development": {
-              "browserTarget": "NASA:build:development"
+              "browserTarget": "scissors-paper-rock:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -79,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "NASA:build"
+            "browserTarget": "scissors-paper-rock:build"
           }
         },
         "test": {
@@ -102,5 +102,5 @@
       }
     }
   },
-  "defaultProject": "NASA"
+  "defaultProject": "scissors-paper-rock"
 }
