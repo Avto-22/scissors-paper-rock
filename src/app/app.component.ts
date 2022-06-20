@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { delay } from "rxjs/operators";
 import { of } from "rxjs";
 
@@ -7,10 +7,14 @@ import { of } from "rxjs";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'scissors-paper-rock';
 
   userValue:string;
+
+  compValue:string;
+
+  winnerText:string;
 
   isLoading:boolean=true;
 
@@ -20,22 +24,24 @@ export class AppComponent implements OnInit {
 
   valueArr:Array<string>=['rock','scissor','paper'];
 
-  compValue:string;
-
-  winnerText:string;
-
   userImg:string="../assets/images/rock-user.png";
 
   computerImg:string="../assets/images/rock-computer.png";
 
   constructor() { }
 
-   makeViewAsync(){
-    of('').pipe(delay(1000)).subscribe(()=>{
-
+   loadImages(){
+    of('').pipe(delay(300)).subscribe(()=>{ // მოქმედებების ჩატვირთვა
       this.computerImg=`./assets/images/${this.compValue}-computer.png`;
       this.userImg=`./assets/images/${this.userValue}-user.png`;
-      this.isLoading=false;
+      (document.getElementsByClassName('game-board')[0] as HTMLElement).style.opacity="0";
+      this.isLoading=false; 
+    });
+  }
+
+  makeLoadSynch(){
+    setTimeout(()=>{ // მოქმედებების ერთდროულად გამოჩენა
+      (document.getElementsByClassName('game-board')[0] as HTMLElement).style.opacity="1";
       let oldUserPoint=this.userPoint;
       let oldComputerPoint=this.computerPoint;
       if(this.userValue==this.compValue){
@@ -65,7 +71,7 @@ export class AppComponent implements OnInit {
       if(this.computerPoint>oldComputerPoint){
         this.winnerText="Computer Win!";
       }
-    });
+    },700);
   }
   
   getWinner(userValue:string){
@@ -74,10 +80,8 @@ export class AppComponent implements OnInit {
     let index=Math.floor(Math.random() * 3);
     this.compValue=this.valueArr[index];
     this.userValue=userValue;
-    this.makeViewAsync();
+    this.loadImages();
+    this.makeLoadSynch();
   }
 
-  ngOnInit() {
-
-  }
 }

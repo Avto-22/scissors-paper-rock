@@ -1,6 +1,6 @@
-<div class="game-board">
+<div class="game-board" >
   <img class="game-img" [src]="userImg" [ngClass]="{start:isLoading}">
-  <p>{{winnerText}}</p>
+  <p >{{winnerText}}</p>
   <img class="game-img" [src]="computerImg" [ngClass]="{start:isLoading}">
 </div>
 <div class="changes">
@@ -8,7 +8,7 @@
     <p>{{"User: "+userPoint}}</p>
     <p>{{"Comp: "+computerPoint}}</p>
   </div>
-  <div class="step" >
+  <div class="step">
     <p *ngFor="let value of valueArr" (click)="getWinner(value)">{{value}}</p>
   </div>
 </div>
